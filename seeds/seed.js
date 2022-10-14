@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection');
-const { User, Project } = require('../models');
+const { User, Project} = require('../models');
 
 const userData = require('./userData.json');
 const projectData = require('./projectData.json');
@@ -18,6 +18,7 @@ const seedDatabase = async () => {
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
+
 
   process.exit(0);
 };
