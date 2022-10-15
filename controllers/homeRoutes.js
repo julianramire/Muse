@@ -15,11 +15,11 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const ais = aiData.map((project) => project.get({ plain: true }));
+    const ais = aiData.map((ai) => ai.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      projects: ais, 
+      ais, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -41,7 +41,7 @@ router.get('/ai/:id', async (req, res) => {
     const ai = aiData.get({ plain: true });
 
     res.render('ai', {
-      ...ai,
+      ai,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -49,8 +49,26 @@ router.get('/ai/:id', async (req, res) => {
   }
 });
 
+
+router.get('/editor/:id', async (req, res)=> {
+  try {
+    const documentData = await AI.findOne({ where: { id : req.params.id }})
+  
+    const document = documentData.get({plain: true});
+
+    res.render('editor', {
+      document,
+      logged_in: req.session.logged_in
+    });
+
+  } catch (err) {
+    res.status(400).json(err);
+  }
+  });
+
+
 // Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/profile', async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {

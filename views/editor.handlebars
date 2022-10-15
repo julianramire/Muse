@@ -1,18 +1,22 @@
     <div class="container">
+      <a href="/ai/{{document.id}}"><p id="back">BACK</p></a>
+      <h1>{{document.title}}</h1>
+
+    <p id="rename">Rename</p>
     <div id="editor">
-        <p>Hello World!</p>
-        <p>Some initial <strong>bold</strong> text</p>
-        <p><br></p>
       </div>
     </div>
 
-{{!-- <button id="button">Get</button>
-<button id="push">Push</button> --}}
+<br><br>
+
 <button id="generate">Generate</button>
+<button id="save">Save</button>
 
+<br><br>
 
+<button id="delete">Delete</button>
 
-      <script src="/js/project.js"></script>
+      <script src="/js/editor.js"></script>
       <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
       <script>
         var quill = new Quill('#editor', {
