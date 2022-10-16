@@ -1,17 +1,12 @@
 const router = require('express').Router();
 const userRoutes = require('./userRoutes');
-<<<<<<< HEAD
-const projectRoutes = require('./projectRoutes');
-const generate = require('./generate')
+const generateRoutes = require('./generate.js');
+const editorRoutes = require('./editorRoutes');
+const aiRoutes = require('./aiRoutes')
 
-router.use('/users', userRoutes);
-router.use('/projects', projectRoutes);
-router.use('/generate', generate)
-=======
-const aiRoutes = require('./apiRoutes');
-
+router.use('/generate', generateRoutes)
 router.use('/users', userRoutes);
 router.use('/ai', aiRoutes);
->>>>>>> e67d737 (changed file names)
+router.use('/editor', editorRoutes);
 
 module.exports = router;

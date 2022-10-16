@@ -1,23 +1,16 @@
 <!-- Loop over each object in the projects array -->
-{{#each ais as |ai| }}
+{{#each ais as |AI| }}
 <div class="row mb-4 project">
   <div class="col-md-5">
     <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/ai/{{AI.id}}">{{AI.name}}</a>
+      <a href="/ai/{{AI.id}}">{{AI.title}}</a>
     </h2>
-    <p>
-      <span for="img" aria-label="money">💲</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount AI.needed_funding}}</span>
-      needed!
-    </p>
-    <p>Created by {{AI.user.name}} on {{format_date AI.date_created}}</p>
+   
+    <p>Created by {{AI.user.title}} on {{format_date AI.date_created}}</p>
   </div>
   <div class="col-md-7">
     <p>
-      {{AI.description}}
+      {{AI.content}}
     </p>
   </div>
 </div>
