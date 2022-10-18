@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "bootstrap": "^5.2.2",
     "connect-session-sequelize": "^7.0.4",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -28,5 +29,13 @@
     "eslint-config-prettier": "^6.15.0",
     "nodemon": "^2.0.20",
     "prettier": "^2.1.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julianramire/Muse.git"
+  },
+  "bugs": {
+    "url": "https://github.com/julianramire/Muse/issues"
+  },
+  "homepage": "https://github.com/julianramire/Muse#readme"
 }
