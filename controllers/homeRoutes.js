@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
     const ais = aiData.map((ai) => ai.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
+    res.render('landingpage', { 
       ais, 
       logged_in: req.session.logged_in 
     });

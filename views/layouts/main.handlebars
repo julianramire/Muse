@@ -4,43 +4,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fund My Project!</title>
+  <title>Muse</title>
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
-  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css">
+
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">Fund My Project!</a>
-      </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
-    </header>
-    <main class="container container-fluid mt-5">
+  <div>
+    <nav class="navbar" id="scrollNavbar">
+      <div class="container-fluid" id="scrollContainer">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
+          aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#" style="font-size: 72px">Muse</a>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="navbarLinks">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/#">Home</a>
+            </li>
+            {{!-- <li class="nav-item">
+              <a class="nav-link" href="#">How To</a>
+            </li> --}}
+            {{#if logged_in}}
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile</a>
+              <button class="no-button" id="logout">Log Out</button>
+              {{else}}
+              <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/login">Log In</a>
+            </li>
+              {{/if}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main>
       <!-- Render the sub layout -->
       {{{ body }}}
-    </main>
-    <footer>
-      
-    </footer>
-  </div>
+    </main </div>
 
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/login.js"></script>
 </body>
 
 </html>

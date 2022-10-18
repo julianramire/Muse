@@ -1,3 +1,12 @@
+function openForm() {
+  document.getElementById("signupPopup").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("signupPopup").style.display = "none";
+}
+
+
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -45,9 +54,12 @@ const signupFormHandler = async (event) => {
 };
 
 document
-  .querySelector('.login-form')
+  .querySelector('#loginForm')
   .addEventListener('submit', loginFormHandler);
 
 document
-  .querySelector('.signup-form')
+  .querySelector('#signupForm')
   .addEventListener('submit', signupFormHandler);
+
+
+

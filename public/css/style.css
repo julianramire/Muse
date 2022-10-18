@@ -1,3 +1,171 @@
+:root {
+  --darkest: #2A2438;
+  --darker: #352F44;
+  --dark: #5C5470;
+  --light: #DBD8E3;
+  --fonts: "garamond", "georgia", "verdana";
+}
+
+* {
+  color: var(--darkest);
+  font-family: var(--fonts);
+}
+
+h1 {
+  color: var(--light);
+}
+
+h1 span {
+  font-size: 42px;
+  border-radius: 8px;
+  background-color: var(--dark) !important;
+}
+
+.navbar-brand {
+  color: var(--dark) !important;
+}
+
+#scrollNavbar {
+  background-color: var(--darkest);
+  font-size: larger;
+  padding-bottom: 7%;
+}
+
+#navbarToggler {
+  background-color: var(--dark) !important;
+}
+
+.navbar-toggler-icon {
+  background-color: var(--dark) !important;
+}
+
+.navbar-toggler {
+  border-color: var(--dark) !important;
+  background-color: var(--dark) !important;
+}
+
+.nav-link {
+  color: var(--light) !important;
+  font-size: larger !important;
+}
+
+#scrollContainer {
+  background-color: var(--darkest);
+}
+
+.card {
+  border-width: 0px !important;
+}
+
+#introCard {
+  padding-right: 7%;
+  padding-left: 7%;
+  padding-bottom: 7%;
+  background-color: var(--darkest);
+}
+
+.img-fluid {
+  object-fit: cover !important;
+  max-width: 100% !important;
+}
+
+a {
+  background-color: var(--darkest);
+  color: var(--darkest) !important;
+}
+
+.d-flex {
+  background-color: var(--dark) !important;
+}
+
+#howCard {
+  padding: 7%;
+  background-color: var(--dark) !important;
+}
+
+#howText {
+  background-color: var(--dark) !important;
+}
+
+#howImage {
+  background-color: var(--dark) !important;
+  object-fit: cover !important;
+  max-width: 100% !important;
+  padding-left: 7%;
+}
+
+#loginCard {
+  align-items: center !important;
+  font-size: xx-large;
+  background-color: var(--light) !important;
+}
+
+#emailHelp {
+  color: var(--dark) !important;
+}
+
+.card-header {
+  border-color: var(--darker) !important;
+  color: var(--darker) !important;
+}
+
+#passwordLabel,
+#emailLabel {
+  color: var(--darker) !important;
+}
+
+.card-footer {
+  border-color: var(--darker) !important;
+}
+
+.form-group {
+  float: right;
+}
+
+#signupLink {
+  background-color: var(--dark);
+  font-size: xx-large;
+  padding: 1.5%;
+}
+
+.card-title,
+.card-text,
+.open-button {
+  color: var(--light) !important;
+}
+
+.form-popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  bottom: 25%;
+  top: 25%;
+}
+
+.form-container {
+  max-width: 25%px;
+  padding: 10%;
+  background-color: var(--dark);
+  box-shadow: 5px 10px var(--darker);
+}
+
+.form-container .form-input {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: var(--light);
+}
+
+.form-container .cancel {
+  background-color: red;
+}
+
+label,
+button {
+  color: var(--light) !important;
+}
+
 header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
