@@ -53,13 +53,18 @@ const signupFormHandler = async (event) => {
   }
 };
 
-document
-  .querySelector('#loginForm')
-  .addEventListener('submit', loginFormHandler);
+if (document.querySelector('#loginForm')) {
+  document
+    .querySelector('#loginForm')
+    .addEventListener('submit', loginFormHandler);
+}
 
-document
-  .querySelector('#signupForm')
-  .addEventListener('submit', signupFormHandler);
+if (document
+  .querySelector('#signupForm')) {
+  document
+    .querySelector('#signupForm')
+    .addEventListener('submit', signupFormHandler);
+}
 
 
 
