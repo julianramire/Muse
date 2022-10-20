@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { AI, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     // // Get all projects and JOIN with user data
     // const aiData = await AI.findAll({
@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     
         // Get all projects and JOIN with user data
@@ -53,7 +53,7 @@ router.get('/dashboard', async (req, res) => {
   }
 })
 
-router.get('/ai/:id', async (req, res) => {
+router.get('/ai/:id', withAuth, async (req, res) => {
   try {
     const aiData = await AI.findByPk(req.params.id, {
       include: [
@@ -86,7 +86,7 @@ router.get('/ai/:id', async (req, res) => {
 });
 
 
-router.get('/editor/:id', async (req, res)=> {
+router.get('/editor/:id', withAuth, async (req, res)=> {
   try {
     const documentData = await AI.findOne({ where: { id : req.params.id }})
   
@@ -104,7 +104,7 @@ router.get('/editor/:id', async (req, res)=> {
 
 
 // Use withAuth middleware to prevent access to route
-router.get('/profile', async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {

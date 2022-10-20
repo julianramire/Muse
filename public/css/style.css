@@ -194,3 +194,7 @@ header, .project:not(:last-child) {
 .profile-text-title {
   background-color: white;
 }
+
+.wrapper {
+  margin: 10%;
+}

@@ -1,15 +1,25 @@
-<div class="ai-wrapper">
-    <a href="/dashboard"><p id="back">BACK</p></a>
+<div class="wrapper">
+    <a href="/dashboard"><p id="back" class="btn btn-primary">BACK</p></a>
 
     <h1>{{ai.title}}</h1>
 
-<p>{{ai.content}}</p>
+ <div id="editor">
+    {{!-- {{ai.content}} --}}
+  </div>
+{{!-- <p>{{ai.content}}</p> --}}
 
 {{!-- custom helper to see if user id matches the creator's user id --}}
 {{#if (isEqual user.id ai.user_id)}}
-<a href="/editor/{{ai.id}}" ><p id="edit"> edit </p></a>
+<a href="/editor/{{ai.id}}" ><p id="edit" class="btn btn-primary"> edit </p></a>
 {{/if}}
 
 </div>
 
       <script src="/js/ai.js"></script>
+      <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script>
+  var quill = new Quill('#editor', {
+    theme: 'bubble',
+    readOnly: 'true',
+  });
+</script>

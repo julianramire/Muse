@@ -1,3 +1,4 @@
+<div class="wrapper">
 <div class="row">
   <div class="col-auto">
     <h2>Welcome, {{name}}!</h2>
@@ -27,25 +28,25 @@
   <div class="col-md-6 project-list">
     <h3>Current Projects:</h3>
 
-{{#each ais as |AI| }}
-<div class="row mb-4 project">
-  <div class="col-md-5">
-    <h2>
-      <a class="profile-text-title" href="/ai/{{AI.id}}">{{AI.title}}</a>
-    </h2>
-   
-    <p>Created by {{AI.user.title}} on {{format_date AI.date_created}}</p>
-  </div>
-  <div class="col-md-7">
-    <p>
-      {{AI.content}}
-    </p>
-  </div>
-        <div class="col-md-4">
+    {{#each ais as |AI| }}
+    <div class="row mb-4 project">
+      <div class="col-md-5">
+        <h2>
+          <a class="profile-text-title" href="/ai/{{AI.id}}">{{AI.title}}</a>
+        </h2>
+
+        <p>Created on {{format_date AI.date_created}}</p>
+      </div>
+      <div class="col-md-7">
+        <p>
+          {{summary AI.content}}
+        </p>
+      </div>
+      <div class="col-md-4">
         <button class="btn btn-sm btn-danger" data-id="{{AI.id}}">DELETE</button>
       </div>
-</div>
-{{/each}}
+    </div>
+    {{/each}}
 
     {{!-- {{#each ais as |AI|}}
     <div class="row mb-2">
@@ -59,6 +60,8 @@
     {{/each}} --}}
   </div>
   {{/if}}
+</div>
+
 </div>
 
 <script src="./js/profile.js"></script>

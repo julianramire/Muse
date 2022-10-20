@@ -1,4 +1,5 @@
 <!-- Loop over each object in the projects array -->
+<div class="wrapper">
 {{#each ais as |AI| }}
 <div class="row mb-4 project">
   <div class="col-md-5">
@@ -10,8 +11,9 @@
   </div>
   <div class="col-md-7">
     <p>
-      {{AI.content}}
+      {{summary AI.content}}
     </p>
   </div>
 </div>
 {{/each}}
+</div>

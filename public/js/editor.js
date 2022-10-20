@@ -103,7 +103,7 @@ const saveDocument = async () => {
 };
 
 // Autosave progress from Quill every 2 seconds
-// setInterval(saveDocument, 2000)
+setInterval(saveDocument, 2000)
 
 
 // Save button handler with a window alert

@@ -15,6 +15,23 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+router.get('/:id', withAuth, async (req, res) => {
+  try {
+
+    const documentData = await AI.findOne({ where: { id : req.params.id }})
+  
+    const document = documentData.get({plain: true});
+
+    console.log(document)
+
+    res.status(200).json(document);
+
+  } catch (err) {
+    res.status(400).json(err);
+    console.log("test2")
+  }
+  });
+
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const aiData = await AI.destroy({
