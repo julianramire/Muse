@@ -1,11 +1,14 @@
 <div class="ai-wrapper">
-    <a href="/"><p id="back">BACK</p></a>
+    <a href="/dashboard"><p id="back">BACK</p></a>
 
     <h1>{{ai.title}}</h1>
 
 <p>{{ai.content}}</p>
 
+{{!-- custom helper to see if user id matches the creator's user id --}}
+{{#if (isEqual user.id ai.user_id)}}
 <a href="/editor/{{ai.id}}" ><p id="edit"> edit </p></a>
+{{/if}}
 
 </div>
 
