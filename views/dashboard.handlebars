@@ -1,4 +1,3 @@
-<!-- Loop over each object in the projects array -->
 <div class="wrapper">
 {{#each ais as |AI| }}
 <div class="row mb-4 project">
@@ -11,7 +10,10 @@
     <p>Created by&nbsp</p>
     <a href="/profile/{{AI.user_id}}" class="profile-text-title"><p>{{AI.user.name}}</p> </a> 
     <p>&nbspon {{format_date AI.date_created}}</p>
+           <p>&nbsp&nbsp // Last updated {{time_since AI.last_updated}} ago</p>
+
    </div>
+
     
   </div>
   <div class="col-md-7">

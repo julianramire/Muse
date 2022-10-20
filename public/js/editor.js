@@ -88,12 +88,16 @@ const saveDocument = async () => {
 
   const dataPath = window.location.pathname;
 
+  const now = dayjs().format('YYYY-MM-DD HH:mm:ss');
+
+  console.log(now)
+
   const saveData = await fetch(`/api${dataPath}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ content: documentData })
+    body: JSON.stringify({ content: documentData, last_updated: now })
   });
 
   if (saveData.ok) {

@@ -44,6 +44,11 @@ router.get('/dashboard', withAuth, async (req, res) => {
         // Serialize data so the template can read it
         const ais = aiData.map((ai) => ai.get({ plain: true }));
 
+        // const aiSorted = ais.sort((a,b)=>a.last_updated()-b.lastupdated());
+
+        // console.log(aiSorted);
+
+
         res.render('dashboard', { 
           ais, 
           logged_in: req.session.logged_in 
