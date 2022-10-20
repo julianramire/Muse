@@ -1,7 +1,15 @@
-// const editBtn = document.getElementById('edit');
-// const deleteBtn = document.getElementById('delete');
+const displayDocument = async () => {
 
-// const enterEditView = () => {
+    const dataPath = window.location.pathname;
+    const documentData = await fetch(`/api${dataPath}`, {
+      method: "GET"
+    });
+  
+    const document = await documentData.json();
+    quill.insertText(0, document.content);
+  
+    return;
+  
+  };
 
-//     const url = 
-// }
+  displayDocument();

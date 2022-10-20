@@ -21,7 +21,7 @@ router.get('/:id', async (req, res)=> {
 router.put('/:id', async (req, res) => {
   try {
     if(req.body.content){
-    const documentData = await AI.update({content: req.body.content}, {
+    const documentData = await AI.update({content: req.body.content, last_updated: req.body.last_updated}, {
       where: {id: req.params.id}  });
       res.status(200).json(documentData);
   };

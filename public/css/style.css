@@ -194,3 +194,16 @@ header, .project:not(:last-child) {
 .profile-text-title {
   background-color: white;
 }
+
+.wrapper {
+  margin: 10%;
+}
+
+.col-md-6 {
+  width: 100% !important;
+}
+
+.credit-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
