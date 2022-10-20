@@ -1,0 +1,28 @@
+<div class="wrapper">
+    <a href="/dashboard"><p id="back" class="btn btn-primary">BACK</p></a>
+
+    <h1>{{name}}'s Projects</h1>
+
+<br>
+
+  {{#each ais as |AI| }}
+      <div class="row mb-4 project">
+        <div class="col-md-5">
+          <h2>
+            <a class="profile-text-title" href="/ai/{{AI.id}}">{{AI.title}}</a>
+          </h2>
+
+          <p>Created on {{format_date AI.date_created}}</p>
+        </div>
+        <div class="col-md-7">
+          <p>
+            {{summary AI.content}}
+          </p>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-sm btn-danger" data-id="{{AI.id}}">DELETE</button>
+        </div>
+      </div>
+      {{/each}}
+
+      </div>

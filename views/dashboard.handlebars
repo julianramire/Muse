@@ -6,8 +6,13 @@
     <h2>
       <a class="profile-text-title" href="/ai/{{AI.id}}">{{AI.title}}</a>
     </h2>
-   
-    <p>Created by {{AI.user.name}} on {{format_date AI.date_created}}</p>
+
+   <div class="credit-wrapper">
+    <p>Created by&nbsp</p>
+    <a href="/profile/{{AI.user_id}}" class="profile-text-title"><p>{{AI.user.name}}</p> </a> 
+    <p>&nbspon {{format_date AI.date_created}}</p>
+   </div>
+    
   </div>
   <div class="col-md-7">
     <p>
