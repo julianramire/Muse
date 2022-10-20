@@ -22,7 +22,7 @@
     "express-session": "^1.17.1",
     "mysql2": "^2.2.5",
     "openai": "^3.0.0",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.25.3"
   },
   "devDependencies": {
     "eslint": "^7.12.1",

@@ -4,28 +4,54 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
-    const aiData = await AI.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+    // // Get all projects and JOIN with user data
+    // const aiData = await AI.findAll({
+    //   include: [
+    //     {
+    //       model: User,
+    //       attributes: ['name'],
+    //     },
+    //   ],
+    // });
 
-    // Serialize data so the template can read it
-    const ais = aiData.map((ai) => ai.get({ plain: true }));
+    // // Serialize data so the template can read it
+    // const ais = aiData.map((ai) => ai.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('landingpage', { 
-      ais, 
+      // ais, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+router.get('/dashboard', async (req, res) => {
+  try {
+    
+        // Get all projects and JOIN with user data
+        const aiData = await AI.findAll({
+          where: {is_public: true},
+          include: [
+            {
+              model: User,
+              attributes: ['name'],
+            },
+          ],
+        });
+    
+        // Serialize data so the template can read it
+        const ais = aiData.map((ai) => ai.get({ plain: true }));
+
+        res.render('dashboard', { 
+          ais, 
+          logged_in: req.session.logged_in 
+        });
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
 
 router.get('/ai/:id', async (req, res) => {
   try {
@@ -40,7 +66,17 @@ router.get('/ai/:id', async (req, res) => {
 
     const ai = aiData.get({ plain: true });
 
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+    });
+
+    const user = userData.get({ plain: true });
+
+    console.log(user.id)
+    console.log(ai.user_id)
+
     res.render('ai', {
+      user,
       ai,
       logged_in: req.session.logged_in
     });
@@ -82,6 +118,8 @@ router.get('/profile', async (req, res) => {
       ...user,
       logged_in: true
     });
+    
+    console.log(user)
   } catch (err) {
     res.status(500).json(err);
   }

@@ -32,6 +32,13 @@ router.put('/:id', async (req, res) => {
       } );
       res.status(200).json(titleData);
     };
+
+    if(req.body.is_public){
+      const publicData = await AI.update({is_public: req.body.is_public}, {
+        where: {id: req.params.id}
+      });
+      res.status(200).json(publicData)
+    }
   } catch (err) {
     console.log(err)
     res.status(400).json(err)

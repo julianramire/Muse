@@ -12,6 +12,12 @@
 <button id="generate">Generate</button>
 <button id="save">Save</button>
 
+{{#if document.is_public}}
+<button id="make-private">Make Private</button>
+{{else}}
+<button id="make-public">Make Public</button>
+{{/if}}
+
 <br><br>
 
 <button id="delete">Delete</button>

@@ -2,7 +2,48 @@ var generateBtn = document.getElementById('generate');
 var saveBtn = document.getElementById('save');
 var renameBtn = document.getElementById('rename');
 var deleteBtn = document.getElementById('delete');
+var makePrivateBtn = document.getElementById('make-private');
+var makePublicBtn = document.getElementById('make-public');
 
+//Make Private
+const makePrivate = async () => {
+  console.log('test1')
+  const dataPath = window.location.pathname;
+  const saveData = await fetch(`/api/${dataPath}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ is_public: "false" })
+  });
+
+  if (saveData.ok) {
+    console.log("success");
+    location.reload();
+  } else {
+    console.log("nope")
+  }
+};
+
+//Make public
+const makePublic = async () => {
+  console.log('test1')
+  const dataPath = window.location.pathname;
+  const saveData = await fetch(`/api/${dataPath}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ is_public: "true" })
+  });
+
+  if (saveData.ok) {
+    console.log("success");
+    location.reload();
+  } else {
+    console.log("nope")
+  }
+};
 //Retrieve document from database and insert into Quill. 
 const displayDocument = async () => {
 
@@ -62,7 +103,7 @@ const saveDocument = async () => {
 };
 
 // Autosave progress from Quill every 2 seconds
-setInterval(saveDocument, 2000)
+// setInterval(saveDocument, 2000)
 
 
 // Save button handler with a window alert
@@ -130,3 +171,10 @@ generateBtn.addEventListener('click', generateHandler);
 saveBtn.addEventListener('click', saveBtnHandler);
 renameBtn.addEventListener("click", renameDocument);
 deleteBtn.addEventListener("click", deleteDocument);
+if(makePrivateBtn){
+  makePrivateBtn.addEventListener("click", makePrivate);
+}
+
+if(makePublicBtn){
+  makePublicBtn.addEventListener('click', makePublic);
+}
