@@ -11,11 +11,15 @@
   font-family: var(--fonts);
 }
 
-h1 {
-  color: var(--light);
+main {
+  background-color: var(--light);
 }
 
-h1 span {
+#introCard h1 {
+  color: var(--light) !important;
+}
+
+#introCard h1 span {
   font-size: 42px;
   border-radius: 8px;
   background-color: var(--dark) !important;
@@ -87,11 +91,19 @@ a {
   background-color: var(--dark) !important;
 }
 
+#howText h1 {
+  color: var(--light);
+}
+
 #howImage {
   background-color: var(--dark) !important;
   object-fit: cover !important;
   max-width: 100% !important;
   padding-left: 7%;
+}
+
+#howImage .img-fluid {
+  float: right;
 }
 
 #loginCard {
@@ -137,16 +149,22 @@ a {
 .form-popup {
   display: none;
   position: fixed;
-  left: 50%;
+  left: 33%;
   bottom: 25%;
-  top: 25%;
+  top: 12%;
 }
 
 .form-container {
-  max-width: 25%px;
+  min-width: 400px;
   padding: 10%;
   background-color: var(--dark);
   box-shadow: 5px 10px var(--darker);
+  min-width: none;
+  max-height: fit-content !important;
+}
+
+.form-container header {
+  color: var(--light);
 }
 
 .form-container .form-input {
@@ -195,15 +213,119 @@ header, .project:not(:last-child) {
   background-color: white;
 }
 
-.wrapper {
-  margin: 10%;
+header h1 {
+  color: var(--darkest);
+  text-align: center !important;
+  font-size: 60px !important;
+}
+
+#newProjectBtn {
+ float: right;
+ margin-right: 25%;
 }
 
 .col-md-6 {
   width: 100% !important;
 }
 
+.col-md-6 h1 {
+  color: var(--darker);
+  font-size: 48px;
+  margin-left: 2%;
+  padding: 3%;
+}
+
+.card .card-header {
+  background-color: var(--dark);
+}
+
+.profile-text-title {
+  font-size: 36px;
+  background-color: var(--dark);
+}
+
+.card-header a {
+  color: var(--light) !important;
+}
+
+#projectCardBody {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+#projectCardBody h5 {
+  padding: 2%;
+  color: var(--dark) !important;
+  font-size: x-large;
+}
+
+.btn.btn-danger {
+  background-color: var(--darkest);
+  border-color: var(--dark);
+}
+
+#aiWrapper {
+  margin-left: 5%;
+}
+
+.wrapper .btn {
+  border-radius: 5px !important;
+  background-color: var(--darkest);
+  margin-top: 1%;
+  border-color: var(--dark) !important;
+  margin-bottom: 1%;
+  align-content: center;
+}
+
+.wrapper a {
+  color: var(--darkest) !important;
+}
+
+.wrapper h1 {
+  color: var(--darker);
+}
+
+.wrapper #back {
+  margin-right: 25%;
+  float: right;
+}
+
+.wrapper #back2 {
+  margin-right: 12px;
+  float: right;
+}
+
 .credit-wrapper {
   display: flex;
   flex-wrap: wrap;
+}
+
+#dashboardHeader {
+  text-align: center;
+  font-size: 60px;
+}
+
+#dashboardLayout {
+  padding-top: 36px;
+}
+
+#dashboardLayout .card {
+  background-color: var(--dark);
+}
+
+#dashboardCard .profile-text-title {
+  font-size: 48px !important;
+  color: var(--darkest) !important;
+  background-color: var(--dark) !important;
+}
+
+#dashboardCard .card-body p {
+  font-size: x-large !important;
+  color: var(--light) !important;
+}
+
+#dashboardLayout .card-text a {
+  background-color: var(--dark);
+  font-size: x-large;
+  color: var(--light) !important;
 }

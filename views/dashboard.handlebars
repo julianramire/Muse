@@ -1,26 +1,29 @@
-<div class="wrapper">
-{{#each ais as |AI| }}
-<div class="row mb-4 project">
-  <div class="col-md-5">
-    <h2>
-      <a class="profile-text-title" href="/ai/{{AI.id}}">{{AI.title}}</a>
-    </h2>
+<header id="dashboardHeader">Explore</header>
 
-   <div class="credit-wrapper">
-    <p>Created by&nbsp</p>
-    <a href="/profile/{{AI.user_id}}" class="profile-text-title"><p>{{AI.user.name}}</p> </a> 
-    <p>&nbspon {{format_date AI.date_created}}</p>
-           <p>&nbsp&nbsp // Last updated {{time_since AI.last_updated}} ago</p>
+<div class="row row-cols-1 row-cols-md-2 g-4" id="dashboardLayout">
+  {{#each ais as |AI| }}
+  <div class="col">
+    <div class="card" id="dashboardCard">
+      <h2>
+        <a class="profile-text-title" href="/ai/{{AI.id}}">{{AI.title}}</a>
+      </h2>
 
-   </div>
+      <div class="card-body">
+        <p>
+          {{summary AI.content}}
+        </p>
+      </div>
 
-    
+      <div class="card-text">
+        <p>Created by
+        <a href="/profile/{{AI.user_id}}">
+          {{AI.user.name}}</p>
+        </a>
+        <p>&nbspon {{format_date AI.date_created}}</p>
+        <p>&nbsp&nbsp // Last updated {{time_since AI.last_updated}} ago</p>
+
+      </div>
+    </div>
   </div>
-  <div class="col-md-7">
-    <p>
-      {{summary AI.content}}
-    </p>
-  </div>
-</div>
-{{/each}}
+  {{/each}}
 </div>
