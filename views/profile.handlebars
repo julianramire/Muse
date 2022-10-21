@@ -1,67 +1,59 @@
-<div class="wrapper">
-  <div class="row">
-    <div class="col-auto">
-      <h2>Welcome, {{name}}!</h2>
-    </div>
-  </div>
+<header>
+  <h1>
+    Welcome, {{name}}!
+  </h1>
+</header>
+<div class="row mt-4">
 
-  <div class="row mt-4">
-    <div class="col-md-6">
-      {{!-- <h3>Create a New Project:</h3> --}}
 
-      <form class="form new-project-form">
-        {{!-- <div class="form-group">
-          <label for="project-name">project name:</label>
-          <input class="form-input" type="text" id="project-name" name="project-name" />
-        </div>
-        <div class="form-group">
-          <label for="project-desc">description:</label>
-          <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
-        </div> --}}
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary">Create New Project</button>
-        </div>
-      </form>
-    </div>
+  {{#if ais.length}}
+  <div class="col-md-6 project-list">
+    <h1>Current Projects:</h1>
 
-    {{#if ais.length}}
-    <div class="col-md-6 project-list">
-      <h3>Current Projects:</h3>
-
-      {{#each ais as |AI| }}
-      <div class="row mb-4 project">
-        <div class="col-md-5">
-          <h2>
-            <a class="profile-text-title" href="/ai/{{AI.id}}">{{AI.title}}</a>
-          </h2>
-
-          <p>Created on {{format_date AI.date_created}}</p>
-        </div>
-        <div class="col-md-7">
-          <p>
-            {{summary AI.content}}
-          </p>
-        </div>
-        <div class="col-md-4">
-          <button class="btn btn-sm btn-danger" data-id="{{AI.id}}">DELETE</button>
-        </div>
+    {{#each ais as |AI| }}
+    <div class="card text-center">
+      <div class="card-header">
+        <a class="profile-text-title" href="/ai/{{AI.id}}">{{AI.title}}</a>
       </div>
-      {{/each}}
-
-      {{!-- {{#each ais as |AI|}}
-      <div class="row mb-2">
-        <div class="col-md-8">
-          <h4 class="profile-project-title"><a href="/ai/{{AI.id}}">{{AI.title}}</a></h4>
-        </div>
-        <div class="col-md-4">
-          <button class="btn btn-sm btn-danger" data-id="{{AI.id}}">DELETE</button>
-        </div>
+      <div class="card-body" id="projectCardBody">
+        <h5 class="card-title">{{summary AI.content}}</h5>
+        <button class="btn btn-sm btn-danger" data-id="{{AI.id}}">DELETE</button>
       </div>
-      {{/each}} --}}
+      <div class="card-footer text-muted">
+        Created on {{format_date AI.date_created}}
+      </div>
     </div>
-    {{/if}}
-  </div>
+    {{/each}}
 
+    {{!-- {{#each ais as |AI|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4 class="profile-project-title"><a href="/ai/{{AI.id}}">{{AI.title}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{AI.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}} --}}
+  </div>
+  {{/if}}
+  <div class="col-md-6">
+    {{!-- <h3>Create a New Project:</h3> --}}
+
+    <form class="form new-project-form">
+      {{!-- <div class="form-group">
+        <label for="project-name">project name:</label>
+        <input class="form-input" type="text" id="project-name" name="project-name" />
+      </div>
+      <div class="form-group">
+        <label for="project-desc">description:</label>
+        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
+      </div> --}}
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" id="newProjectBtn">Start New Project</button>
+      </div>
+    </form>
+  </div>
 </div>
 
 <script src="./js/profile.js"></script>
